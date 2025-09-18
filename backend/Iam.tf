@@ -34,6 +34,11 @@ resource "aws_iam_role_policy" "lambda_custom_policy" {
       },
       {
         Effect   = "Allow",
+        Action   = ["translate:TranslateText"],
+        Resource = "*"
+      },
+      {
+        Effect   = "Allow",
         Action   = ["s3:PutObject", "s3:GetObject"],
         Resource = "${aws_s3_bucket.audio.arn}/*"
       }
